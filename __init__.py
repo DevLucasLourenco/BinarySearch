@@ -129,9 +129,9 @@ class BinarySearch:
 
 
 if __name__ == '__main__':
-    lista = [1,5,5,5,15,17,20,24,67,76]
-    
     app = BinarySearch(referencial=lista, metodo='find')
+    
+    lista = [1,5,5,5,15,17,20,24,67,76]
     x = app.fetch(5)
     print(x)
 
