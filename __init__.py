@@ -16,14 +16,14 @@ class BinarySearch:
 
     def __init__(self, referencial:list, metodo:str = 'find'):
         self.opcoes_de_metodos = 'find', 'count', 'locate'
-        self.metodo = BinarySearch.if_item_in(metodo, self.opcoes_de_metodos).lower()
+        self.metodo = BinarySearch.__if_item_in(metodo, self.opcoes_de_metodos).lower()
         self.referencial = sorted(referencial) # Ordena a lista, visto que a Busca Binária só será funcional caso a lista referida seja permutada.
         self.procura = ...
 
     
     
     @staticmethod
-    def if_item_in(item, opcoes):
+    def __if_item_in(item, opcoes):
 
         if not item in opcoes:
             raise ValueError(f"Indicado: '{item}' | Opções: {opcoes}")
