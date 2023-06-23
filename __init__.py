@@ -18,7 +18,7 @@ class BinarySearch:
         self.opcoes_de_metodos = 'find', 'count', 'locate'
         self.metodo = BinarySearch.__if_item_in(metodo, self.opcoes_de_metodos).lower()
         self.referencial = sorted(referencial) # Ordena a lista, visto que a Busca Binária só será funcional caso a lista referida seja permutada.
-        self.procura = ...
+        self.procura = None
 
     
     
@@ -49,37 +49,37 @@ class BinarySearch:
 
 
     # find
-    def __busca_binaria_find(self, l, r):
-        while (l <= r):
-            meio = (l+r) // 2 # meio
+    def __busca_binaria_find(self, indice_esquerda, indice_direita):
+        while (indice_esquerda <= indice_direita):
+            meio = (indice_esquerda+indice_direita) // 2 # meio
             if (self.referencial[meio] == self.procura):
                 return True
             
             elif (self.referencial[meio] > self.procura):
-                r = meio-1
+                indice_direita = meio-1
 
             else:
-                l = meio+1
+                indice_esquerda = meio+1
 
         return False
 
 
     # count
-    def __busca_binaria_count(self, l, r):
+    def __busca_binaria_count(self, indice_esquerda, indice_direita):
         total = 0
-        while (l <= r):
-            meio = (l+r) // 2 # meio
+        while (indice_esquerda <= indice_direita):
+            meio = (indice_esquerda+indice_direita) // 2 # meio
 
             if (self.referencial[meio] == self.procura):
                 total += 1
                 i = meio+1
 
-                while (i < len(self.referencial)) and self.referencial[i] == self.procura:
+                while (i < len(self.referencial)) and (self.referencial[i] == self.procura):
                     total += 1
                     i += 1
 
                 i = meio-1
-                while (i >=  0) and self.referencial[i] == self.procura:
+                while (i >=  0) and (self.referencial[i] == self.procura):
                     total += 1
                     i -= 1
 
@@ -87,30 +87,30 @@ class BinarySearch:
             
 
             elif (self.referencial[meio] > self.procura):
-                r = meio-1
+                indice_direita = meio-1
 
             else:
-                l = meio+1
+                indice_esquerda = meio+1
 
         return total
 
 
     # locate
-    def __busca_binaria_locate(self, l, r):
+    def __busca_binaria_locate(self, indice_esquerda, indice_direita):
         lista_auxiliar = list()
-        while (l <= r):
-            meio = (l+r) // 2 # meio
+        while (indice_esquerda <= indice_direita):
+            meio = (indice_esquerda+indice_direita) // 2 # meio
 
             if (self.referencial[meio] == self.procura):
                 lista_auxiliar.append(meio)
                 i = meio+1
 
-                while (i < len(self.referencial)) and self.referencial[i] == self.procura:
+                while (i < len(self.referencial)) and (self.referencial[i] == self.procura):
                     lista_auxiliar.append(i)
                     i += 1
 
                 i = meio-1
-                while (i >=  0) and self.referencial[i] == self.procura:
+                while (i >=  0) and (self.referencial[i] == self.procura):
                     lista_auxiliar.append(i)
                     i -= 1
 
@@ -118,10 +118,10 @@ class BinarySearch:
             
 
             elif (self.referencial[meio] > self.procura):
-                r = meio-1
+                indice_direita = meio-1
 
             else:
-                l = meio+1
+                indice_esquerda = meio+1
 
         return False
 
@@ -134,4 +134,3 @@ if __name__ == '__main__':
     
     x = app.fetch(5)
     print(x)
-
