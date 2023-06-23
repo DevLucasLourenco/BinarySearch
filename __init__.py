@@ -4,7 +4,7 @@ class BinarySearch:
       Parâmetros
         ----------\n
             referencial : list or tuple
-                lista a qual será procurada a informação
+                Iterable onde será procurado a informação
             metodo : str
                 existem três opções 'find', 'count', 'locate'\n
       Métodos
