@@ -1,6 +1,6 @@
 class BinarySearch:
     """
-    Uma classe destinada à realização de Buscas Binárias.\n
+    Realização de Buscas Binárias.\n
       Parâmetros
         ----------\n
             referencial : list or tuple
