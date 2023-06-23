@@ -1,10 +1,24 @@
 class BinarySearch:
+    """
+    Uma classe destinada à realização de Buscas Binárias.\n
+      Parâmetros
+        ----------\n
+            referencial : list or tuple
+                lista a qual será procurada a informação
+            metodo : str
+                existem três opções 'find', 'count', 'locate'\n
+      Métodos
+        ----------\n
+            fetch(procura = x)
+                Realiza a Busca Binária com o valor de x passado no parâmetro 'procura'
 
-    def __init__(self, procura, referencial:list, metodo:str = 'find'):
+    """         
+
+    def __init__(self, referencial:list, metodo:str = 'find'):
         self.opcoes_de_metodos = 'find', 'count', 'locate'
         self.metodo = BinarySearch.if_item_in(metodo, self.opcoes_de_metodos).lower()
         self.referencial = sorted(referencial) # Ordena a lista, visto que a Busca Binária só será funcional caso a lista referida seja permutada.
-        self.procura = procura
+        self.procura = ...
 
     
     
@@ -16,7 +30,8 @@ class BinarySearch:
         return item
 
 
-    def fetch(self):
+    def fetch(self, procura):
+        self.procura = procura
         INDICE_MIN, INDICE_MAX = 0, len(self.referencial) - 1 # esqueda e direita
         
         if self.metodo == self.opcoes_de_metodos[0]: # find
@@ -116,7 +131,7 @@ class BinarySearch:
 if __name__ == '__main__':
     lista = [1,5,5,5,15,17,20,24,67,76]
     
-    app = BinarySearch(5, referencial=lista, metodo='find')
-    x = app.fetch()
+    app = BinarySearch(referencial=lista, metodo='find')
+    x = app.fetch(5)
     print(x)
 
