@@ -52,6 +52,7 @@ class BinarySearch:
     def __busca_binaria_find(self, indice_esquerda, indice_direita):
         while (indice_esquerda <= indice_direita):
             meio = (indice_esquerda+indice_direita) // 2 # meio
+            
             if (self.referencial[meio] == self.procura):
                 return True
             
@@ -67,6 +68,7 @@ class BinarySearch:
     # count
     def __busca_binaria_count(self, indice_esquerda, indice_direita):
         total = 0
+        
         while (indice_esquerda <= indice_direita):
             meio = (indice_esquerda+indice_direita) // 2 # meio
 
@@ -79,7 +81,7 @@ class BinarySearch:
                     i += 1
 
                 i = meio-1
-                while (i >=  0) and (self.referencial[i] == self.procura):
+                while (i >= 0) and (self.referencial[i] == self.procura):
                     total += 1
                     i -= 1
 
@@ -98,6 +100,7 @@ class BinarySearch:
     # locate
     def __busca_binaria_locate(self, indice_esquerda, indice_direita):
         lista_auxiliar = list()
+        
         while (indice_esquerda <= indice_direita):
             meio = (indice_esquerda+indice_direita) // 2 # meio
 
