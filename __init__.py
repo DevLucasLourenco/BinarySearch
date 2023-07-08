@@ -34,18 +34,26 @@ class BinarySearch:
         self.procura = procura
         INDICE_MIN, INDICE_MAX = 0, len(self.referencial) - 1 # esqueda e direita
         
-        if self.metodo == self.opcoes_de_metodos[0]: # find
-            resultado = self.__busca_binaria_find(INDICE_MIN, INDICE_MAX)
 
-        
-        elif self.metodo == self.opcoes_de_metodos[1]: # count
-           resultado = self.__busca_binaria_count(INDICE_MIN, INDICE_MAX)
+        class OpcoesMetodos(BinarySearch):
+            op_find = self.opcoes_de_metodos[0]
+            op_count = self.opcoes_de_metodos[1]
+            op_locate = self.opcoes_de_metodos[2]
 
 
-        elif self.metodo == self.opcoes_de_metodos[2]: # locate
-           resultado = self.__busca_binaria_locate(INDICE_MIN, INDICE_MAX)
+        match self.metodo:
 
-        return resultado
+            case OpcoesMetodos.op_find:
+                resultado = self.__busca_binaria_find(INDICE_MIN, INDICE_MAX)
+                return resultado
+
+            case OpcoesMetodos.op_count:
+                resultado = self.__busca_binaria_count(INDICE_MIN, INDICE_MAX)
+                return resultado
+
+            case OpcoesMetodos.op_locate:
+                resultado = self.__busca_binaria_locate(INDICE_MIN, INDICE_MAX)
+                return resultado
 
 
     # find
@@ -61,7 +69,7 @@ class BinarySearch:
 
             else:
                 indice_esquerda = meio+1
-
+        
         return False
 
 
